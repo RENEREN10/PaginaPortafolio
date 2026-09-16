@@ -241,10 +241,11 @@ function applyConfig() {
 
   const wa = document.querySelector(".whatsapp-float");
   if (wa && CONFIG.whatsapp && /^\d+$/.test(CONFIG.whatsapp)) {
-    const text =
+    const rawText =
       currentLang === "en"
-        ? "Hello%20Ren%C3%A9%2C%20I%20want%20a%20quote%20for%20my%20web%20project"
-        : "Hola%20Ren%C3%A9%2C%20quiero%20una%20cotizaci%C3%B3n%20para%20mi%20proyecto%20web";
+        ? "👋 Hello René 😊, I want a quote for my web project 💻✨"
+        : "👋 Hola René 😊, quiero una cotización para mi proyecto web 💻✨";
+    const text = encodeURIComponent(rawText);
     wa.href = `https://wa.me/${CONFIG.whatsapp}?text=${text}`;
   }
 }
