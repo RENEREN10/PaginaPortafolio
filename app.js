@@ -107,6 +107,8 @@ const TRANSLATIONS = {
     "contact.send": "Enviar solicitud ✉",
     "contact.hint": "Al enviar aceptas ser contactado sobre tu solicitud. Nada de spam.",
     "contact.ok": "✓ ¡Gracias! Tu solicitud fue registrada. Te contactaré muy pronto.",
+    "contact.sending": "Enviando…",
+    "contact.errSend": "✕ No se pudo enviar. Intenta de nuevo o escríbeme por WhatsApp.",
     "contact.errMail": "✕ Escribe un correo válido para poder responderte.",
     "contact.errMsg": "✕ Cuéntame un poco más sobre tu proyecto (mínimo 10 caracteres).",
     "footer.rights": "Todos los derechos reservados.",
@@ -197,6 +199,8 @@ const TRANSLATIONS = {
     "contact.send": "Send request ✉",
     "contact.hint": "By sending you agree to be contacted about your request. No spam.",
     "contact.ok": "✓ Thanks! Your request was received. I'll get back to you very soon.",
+    "contact.sending": "Sending…",
+    "contact.errSend": "✕ Could not send. Try again or message me on WhatsApp.",
     "contact.errMail": "✕ Please enter a valid email so I can reply.",
     "contact.errMsg": "✕ Tell me a bit more about your project (min. 10 characters).",
     "footer.rights": "All rights reserved.",
@@ -373,12 +377,15 @@ function initUI() {
     });
   });
 
-  // Formulario → abre el correo del visitante con mailto a tu Gmail.
-  // Al dar Enviar se valida y se abre Gmail/Outlook listo para enviar a CONFIG.contactEmail.
+  // Formulario → envío directo en segundo plano con FormSubmit AJAX.
+  // No abre Gmail ni pestañas nuevas: solo muestra éxito / error en #formNote.
+  // Requiere activación única: el primer envío manda un correo de activación a CONFIG.contactEmail.
   const form = document.getElementById("contactForm");
   const note = document.getElementById("formNote");
   if (form) {
-    form.addEventListener("submit", (e) => {
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const defaultBtnText = submitBtn ? submitBtn.textContent : "";
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
       const email = document.getElementById("clientEmail").value.trim();
       const msg = document.getElementById("clientMsg").value.trim();
@@ -399,16 +406,46 @@ function initUI() {
         currentLang === "en"
           ? `Portfolio request - ${email}`
           : `Solicitud portafolio - ${email}`;
-      const body =
-        currentLang === "en"
-          ? `Contact email: ${email}\n\n${msg}`
-          : `Correo contacto: ${email}\n\n${msg}`;
-      window.location.href = `mailto:${CONFIG.contactEmail}?subject=${encodeURIComponent(
-        subject
-      )}&body=${encodeURIComponent(body)}`;
-      note.textContent = t["contact.ok"];
-      note.classList.add("success");
-      form.reset();
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = t["contact.sending"];
+      }
+      note.textContent = t["contact.sending"];
+
+      try {
+        const res = await fetch(
+          `https://formsubmit.co/ajax/${CONFIG.contactEmail}`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Accept: "application/json" },
+            body: JSON.stringify({
+              email,
+              message: msg,
+              _subject: subject,
+              _template: "table",
+              _captcha: "false",
+            }),
+          }
+        );
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        note.textContent = t["contact.ok"];
+        note.classList.add("success");
+        form.reset();
+      } catch (err) {
+        note.textContent = t["contact.errSend"];
+        note.classList.add("error");
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = defaultBtnText;
+          // Re-aplica idioma por si el texto del botón depende de data-i18n
+          const key = submitBtn.getAttribute("data-i18n");
+          if (key && TRANSLATIONS[currentLang][key]) {
+            submitBtn.textContent = TRANSLATIONS[currentLang][key];
+          }
+        }
+      }
     });
   }
 }
