@@ -33,6 +33,7 @@
 
       <ul class="nav__links" id="navLinks">
         <li><a href="#inicio" data-i18n="nav.home">Inicio</a></li>
+        <li><a href="#stack" data-i18n="nav.stack">Stack</a></li>
         <li><a href="#servicios" data-i18n="nav.services">Servicios</a></li>
         <li><a href="#proyectos" data-i18n="nav.projects">Proyectos</a></li>
         <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
@@ -65,8 +66,83 @@
           <a href="#proyectos" class="btn btn--primary" data-i18n="hero.cta1">Ver proyectos</a>
           <a href="#contacto" class="btn btn--ghost" data-i18n="hero.cta2">Pedir cotización</a>
         </div>
-        <p class="hero__stack-label" aria-hidden="true">HTML5 · CSS3 · JavaScript · Responsive</p>
+        <!-- Tira infinita de stack: solo logos, al hover tiñen la página -->
+        <div class="stack-marquee" aria-label="Herramientas que domino">
+          <div class="marquee__track">
+            <div class="marquee__group">
+              <span class="marquee__item" data-accent="#E34F26" data-accent-soft="rgba(227,79,38,.42)" title="HTML5" tabindex="0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" width="44" height="44" loading="eager" /></span>
+              <span class="marquee__item" data-accent="#1572B6" data-accent-soft="rgba(21,114,182,.45)" title="CSS3" tabindex="0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" width="44" height="44" loading="eager" /></span>
+              <span class="marquee__item" data-accent="#F7DF1E" data-accent-soft="rgba(247,223,30,.38)" title="JavaScript" tabindex="0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="44" height="44" loading="eager" /></span>
+              <span class="marquee__item" data-accent="#3178C6" data-accent-soft="rgba(49,120,198,.45)" title="TypeScript" tabindex="0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" width="44" height="44" loading="eager" /></span>
+              <span class="marquee__item" data-accent="#61DAFB" data-accent-soft="rgba(97,218,251,.38)" title="React" tabindex="0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" width="44" height="44" loading="eager" /></span>
+              <span class="marquee__item" data-accent="#06B6D4" data-accent-soft="rgba(6,182,212,.42)" title="Tailwind CSS" tabindex="0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" width="44" height="44" loading="eager" /></span>
+              <span class="marquee__item" data-accent="#F05032" data-accent-soft="rgba(240,80,50,.42)" title="Git" tabindex="0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" width="44" height="44" loading="eager" /></span>
+              <span class="marquee__item" data-accent="#E8E8EC" data-accent-soft="rgba(232,232,236,.32)" title="GitHub" tabindex="0"><img class="logo--invert" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" width="44" height="44" loading="eager" /></span>
+            </div>
+            <div class="marquee__group" aria-hidden="true">
+              <span class="marquee__item" data-accent="#E34F26" data-accent-soft="rgba(227,79,38,.42)" tabindex="-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="" width="44" height="44" loading="lazy" /></span>
+              <span class="marquee__item" data-accent="#1572B6" data-accent-soft="rgba(21,114,182,.45)" tabindex="-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="" width="44" height="44" loading="lazy" /></span>
+              <span class="marquee__item" data-accent="#F7DF1E" data-accent-soft="rgba(247,223,30,.38)" tabindex="-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="" width="44" height="44" loading="lazy" /></span>
+              <span class="marquee__item" data-accent="#3178C6" data-accent-soft="rgba(49,120,198,.45)" tabindex="-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="" width="44" height="44" loading="lazy" /></span>
+              <span class="marquee__item" data-accent="#61DAFB" data-accent-soft="rgba(97,218,251,.38)" tabindex="-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" width="44" height="44" loading="lazy" /></span>
+              <span class="marquee__item" data-accent="#06B6D4" data-accent-soft="rgba(6,182,212,.42)" tabindex="-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="" width="44" height="44" loading="lazy" /></span>
+              <span class="marquee__item" data-accent="#F05032" data-accent-soft="rgba(240,80,50,.42)" tabindex="-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="" width="44" height="44" loading="lazy" /></span>
+              <span class="marquee__item" data-accent="#E8E8EC" data-accent-soft="rgba(232,232,236,.32)" tabindex="-1"><img class="logo--invert" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="" width="44" height="44" loading="lazy" /></span>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <!-- ============ STACK / DOMINIO ============ -->
+    <section class="section container stack" id="stack">
+      <p class="section__kicker reveal" data-i18n="stack.kicker">Mi stack</p>
+      <h2 class="section__title reveal" data-i18n="stack.title">Tecnología que trabaja para ti</h2>
+      <p class="section__desc reveal" data-i18n="stack.desc">Tecnología de nivel profesional para que tu negocio venda más: webs ultrarrápidas, diseño que se ve caro y código robusto que no se rompe cuando creces.</p>
+
+      <div class="stack-grid">
+        <article class="stack-card reveal" tabindex="0">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" width="40" height="40" loading="lazy" />
+          <h3>HTML5</h3>
+          <p class="stack-card__desc" data-i18n="stack.d_html">Estructura sólida de tu web: base rápida y semántica que Google entiende y posiciona.</p>
+        </article>
+        <article class="stack-card reveal" tabindex="0">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" width="40" height="40" loading="lazy" />
+          <h3>CSS3</h3>
+          <p class="stack-card__desc" data-i18n="stack.d_css">Diseño moderno y responsive: tu página perfecta en celular, tablet y PC, con animaciones suaves.</p>
+        </article>
+        <article class="stack-card reveal" tabindex="0">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="40" height="40" loading="lazy" />
+          <h3>JavaScript</h3>
+          <p class="stack-card__desc" data-i18n="stack.d_js">Interactividad real: formularios, reservas, animaciones y dashboards que responden al instante.</p>
+        </article>
+        <article class="stack-card reveal" tabindex="0">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" width="40" height="40" loading="lazy" />
+          <h3>TypeScript</h3>
+          <p class="stack-card__desc" data-i18n="stack.d_ts">Código blindado contra errores: ideal cuando tu app va a crecer sin romperse.</p>
+        </article>
+        <article class="stack-card reveal" tabindex="0">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" width="40" height="40" loading="lazy" />
+          <h3>React</h3>
+          <p class="stack-card__desc" data-i18n="stack.d_react">Apps veloces por componentes: paneles administrables y experiencias dinámicas para tu negocio.</p>
+        </article>
+        <article class="stack-card reveal" tabindex="0">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" width="40" height="40" loading="lazy" />
+          <h3>Tailwind</h3>
+          <p class="stack-card__desc" data-i18n="stack.d_tailwind">Diseños a medida en tiempo récord, livianos y sin plantillas pesadas que relentizan tu web.</p>
+        </article>
+        <article class="stack-card reveal" tabindex="0">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" width="40" height="40" loading="lazy" />
+          <h3>Git</h3>
+          <p class="stack-card__desc" data-i18n="stack.d_git">Control total de cambios: cada versión guardada, nada se pierde y todo es reversible.</p>
+        </article>
+        <article class="stack-card reveal" tabindex="0">
+          <img class="logo--invert" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" width="40" height="40" loading="lazy" />
+          <h3>GitHub</h3>
+          <p class="stack-card__desc" data-i18n="stack.d_github">Tu proyecto publicado y desplegado en la nube, con actualizaciones continuas.</p>
+        </article>
+      </div>
+      <p class="stack-note reveal" data-i18n="stack.note">Responsive y mobile-first en cada entrega · Código limpio sin dependencias pesadas</p>
     </section>
 
     <!-- ============ SERVICIOS ============ -->
@@ -122,6 +198,13 @@
       </div>
 
       <div class="projects__list container">
+
+        <!-- ===== DIVISOR: LANDINGS ===== -->
+        <div class="projects__divider reveal">
+          <p class="section__kicker" data-i18n="land.kicker">Sitios que venden</p>
+          <h3 class="projects__divider-title" data-i18n="land.title">Landing Pages</h3>
+          <p class="projects__divider-desc" data-i18n="land.desc">Páginas diseñadas para convertir visitas en clientes: mensaje claro, prueba social y contacto directo por WhatsApp en un clic.</p>
+        </div>
 
         <!-- ===== 1. TALLER MECÁNICO ===== -->
         <!-- 🔗 PEGA AQUÍ TU URL FINAL: cambia href="#" por tu link -->
@@ -207,6 +290,14 @@
           </div>
         </article>
 
+        <!-- ===== DIVISOR: DASHBOARDS ===== -->
+        <div class="projects__divider reveal">
+          <p class="section__kicker" data-i18n="dash.kicker">Paneles administrables</p>
+          <h3 class="projects__divider-title" data-i18n="dash.title">Dashboards</h3>
+          <p class="projects__divider-desc" data-i18n="dash.desc">Tus números bajo control: ventas, inventario, miembros, asistencia, pagos, finanzas y tablero de tareas con seguimiento de progreso — todo en pantallas claras. Y lo mejor: son demos 100% interactivas — filtra, asigna, toca y prueba cada panel como si ya fuera tuyo, sin compromiso.</p>
+          <p class="projects__live"><span class="pulse"></span><span data-i18n="dash.live">Demo interactiva: tócala y pruébala</span></p>
+        </div>
+
         <!-- ===== 4. DASHBOARD E-COMMERCE ===== -->
         <!-- 🔗 PEGA AQUÍ TU URL FINAL -->
         <article class="project-card reveal" data-theme="ecommerce" id="proyecto-ecommerce">
@@ -264,6 +355,64 @@
                 <div class="dash-row"><span>Ana R. — Mensualidad</span><em class="ok">Al día</em></div>
                 <div class="dash-row"><span>Luis M. — Anual</span><em class="warn">Vence en 5 días</em></div>
                 <div class="dash-row"><span>Carlos P. — Pago</span><em class="bad">Pendiente</em></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ===== 6. DASHBOARD FINANCIERO (React + Tailwind + TS) ===== -->
+        <article class="project-card reveal" data-theme="finanzas" id="proyecto-financiero">
+          <div class="project-card__info">
+            <p class="project-card__num">06 — <span data-i18n="p6.badge">Dashboard Admin</span></p>
+            <h3 data-i18n="p6.title">Dashboard Financiero</h3>
+            <p data-i18n="p6.desc">Panel financiero para controlar ingresos, gastos y balance en tiempo real: métricas claras, gráficos de rendimiento y movimientos recientes en una sola pantalla.</p>
+            <ul class="project-card__feats">
+              <li data-i18n="p6.f1">✔ Métricas de ingresos, gastos y balance</li>
+              <li data-i18n="p6.f2">✔ Gráficos interactivos de rendimiento</li>
+              <li data-i18n="p6.f3">✔ Historial de movimientos recientes</li>
+            </ul>
+            <div class="tags"><span>React</span><span>Tailwind</span><span>TypeScript</span></div>
+            <div class="project-card__links">
+              <a class="btn btn--primary" data-project="financiero" href="https://dashboardfinancieros.netlify.app/" target="_blank" rel="noopener" data-i18n="projects.demo">Ver demo en vivo ↗</a>
+            </div>
+          </div>
+          <div class="project-card__visual visual--finanzas" aria-hidden="true">
+            <div class="mock mock--dash">
+              <div class="mock__bar"><i></i><i></i><i></i></div>
+              <div class="dash-grid">
+                <div class="dash-kpi"><small>Balance</small><strong>$12.4k</strong></div>
+                <div class="dash-kpi"><small>Gastos</small><strong>$3.1k</strong></div>
+                <div class="chart-bars"><i style="height:35%"></i><i style="height:60%"></i><i style="height:45%"></i><i style="height:80%"></i><i style="height:65%"></i><i style="height:95%"></i></div>
+                <div class="dash-row"><span>Nómina — Julio</span><em class="ok">Pagada</em></div>
+                <div class="dash-row"><span>Proveedor stock</span><em class="warn">Por vencer</em></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ===== 7. TABLERO DE TAREAS FULLSTACK (React + Tailwind + TS) ===== -->
+        <article class="project-card reveal" data-theme="tablero" id="proyecto-tablero">
+          <div class="project-card__info">
+            <p class="project-card__num">07 — <span data-i18n="p7.badge">App Interactiva</span></p>
+            <h3 data-i18n="p7.title">Tablero de Tareas</h3>
+            <p data-i18n="p7.desc">Tablero interactivo para asignar tareas y seguir su progreso: columnas por estado, responsables y avance visible en tiempo real. Manipúlalo y pruébalo tú mismo.</p>
+            <ul class="project-card__feats">
+              <li data-i18n="p7.f1">✔ Asignación de tareas por responsable</li>
+              <li data-i18n="p7.f2">✔ Columnas por estado estilo Kanban</li>
+              <li data-i18n="p7.f3">✔ Progreso visible en tiempo real</li>
+            </ul>
+            <div class="tags"><span>React</span><span>Tailwind</span><span>TypeScript</span></div>
+            <div class="project-card__links">
+              <a class="btn btn--primary" data-project="tablero" href="https://tablerofullstack.netlify.app/" target="_blank" rel="noopener" data-i18n="projects.demo">Ver demo en vivo ↗</a>
+            </div>
+          </div>
+          <div class="project-card__visual visual--tablero" aria-hidden="true">
+            <div class="mock mock--dash">
+              <div class="mock__bar"><i></i><i></i><i></i></div>
+              <div class="kanban">
+                <div class="kanban__col"><small>Por hacer</small><span>Diseñar hero</span><span>Revisar pagos</span></div>
+                <div class="kanban__col"><small>En curso</small><span class="hl">Integrar API</span></div>
+                <div class="kanban__col"><small>Listo</small><span class="done">Deploy demo ✓</span></div>
               </div>
             </div>
           </div>

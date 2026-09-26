@@ -17,6 +17,8 @@ const CONFIG = {
     gimnasio:  "URL-PROYECTO-GIMNASIO",
     ecommerce: "URL-PROYECTO-DASHBOARD-ECOMMERCE",
     gymdash:   "URL-PROYECTO-DASHBOARD-GIMNASIO",
+    financiero: "https://dashboardfinancieros.netlify.app/",
+    tablero:    "https://tablerofullstack.netlify.app/",
   },
 };
 
@@ -24,6 +26,7 @@ const CONFIG = {
 const TRANSLATIONS = {
   es: {
     "nav.home": "Inicio",
+    "nav.stack": "Stack",
     "nav.services": "Servicios",
     "nav.projects": "Proyectos",
     "nav.contact": "Contacto",
@@ -34,6 +37,18 @@ const TRANSLATIONS = {
     "hero.desc": "Landing pages, dashboards y diseño a código. Rápido, responsive y sin plantillas.",
     "hero.cta1": "Ver proyectos",
     "hero.cta2": "Pedir cotización",
+    "stack.kicker": "Mi stack",
+    "stack.title": "Tecnología que trabaja para ti",
+    "stack.desc": "Tecnología de nivel profesional para que tu negocio venda más: webs ultrarrápidas, diseño que se ve caro y código robusto que no se rompe cuando creces.",
+    "stack.d_html": "Estructura sólida de tu web: base rápida y semántica que Google entiende y posiciona.",
+    "stack.d_css": "Diseño moderno y responsive: tu página perfecta en celular, tablet y PC, con animaciones suaves.",
+    "stack.d_js": "Interactividad real: formularios, reservas, animaciones y dashboards que responden al instante.",
+    "stack.d_ts": "Código blindado contra errores: ideal cuando tu app va a crecer sin romperse.",
+    "stack.d_react": "Apps veloces por componentes: paneles administrables y experiencias dinámicas para tu negocio.",
+    "stack.d_tailwind": "Diseños a medida en tiempo récord, livianos y sin plantillas pesadas que relentizan tu web.",
+    "stack.d_git": "Control total de cambios: cada versión guardada, nada se pierde y todo es reversible.",
+    "stack.d_github": "Tu proyecto publicado y desplegado en la nube, con actualizaciones continuas.",
+    "stack.note": "Responsive y mobile-first en cada entrega · Código limpio sin dependencias pesadas",
     "hero.cardRole": "Front-end Developer · Freelance",
     "hero.cardStatus": "● En línea",
     "hero.f1": "Landing pages ultrarrápidas y optimizadas",
@@ -65,6 +80,25 @@ const TRANSLATIONS = {
     "projects.desc": "Sigue bajando: cada proyecto ilumina la página con su propio color. Haz clic en “Ver demo” para explorar cada uno.",
     "projects.hint": "Desliza para explorar",
     "projects.demo": "Ver demo en vivo ↗",
+    "land.kicker": "Sitios que venden",
+    "land.title": "Landing Pages",
+    "land.desc": "Páginas diseñadas para convertir visitas en clientes: mensaje claro, prueba social y contacto directo por WhatsApp en un clic.",
+    "dash.kicker": "Paneles administrables",
+    "dash.title": "Dashboards",
+    "dash.desc": "Tus números bajo control: ventas, inventario, miembros, asistencia, pagos, finanzas y tablero de tareas con seguimiento de progreso — todo en pantallas claras. Y lo mejor: son demos 100% interactivas — filtra, asigna, toca y prueba cada panel como si ya fuera tuyo, sin compromiso.",
+    "dash.live": "Demo interactiva: tócala y pruébala",
+    "p6.badge": "Dashboard Admin",
+    "p6.title": "Dashboard Financiero",
+    "p6.desc": "Panel financiero para controlar ingresos, gastos y balance en tiempo real: métricas claras, gráficos de rendimiento y movimientos recientes en una sola pantalla.",
+    "p6.f1": "✔ Métricas de ingresos, gastos y balance",
+    "p6.f2": "✔ Gráficos interactivos de rendimiento",
+    "p6.f3": "✔ Historial de movimientos recientes",
+    "p7.badge": "App Interactiva",
+    "p7.title": "Tablero de Tareas",
+    "p7.desc": "Tablero interactivo para asignar tareas y seguir su progreso: columnas por estado, responsables y avance visible en tiempo real. Manipúlalo y pruébalo tú mismo.",
+    "p7.f1": "✔ Asignación de tareas por responsable",
+    "p7.f2": "✔ Columnas por estado estilo Kanban",
+    "p7.f3": "✔ Progreso visible en tiempo real",
     "p1.badge": "Landing Page",
     "p1.title": "Taller Mecánico “Auto fix”",
     "p1.desc": "Diseñada para convertir usuarios con urgencias mecánicas en clientes en la rampa de servicio. Estructura de alta conversión con jerarquía clara de precios, llamadas a la acción inmediatas y agendamiento directo sin fricción.",
@@ -116,16 +150,29 @@ const TRANSLATIONS = {
   },
   en: {
     "nav.home": "Home",
+    "nav.stack": "Stack",
     "nav.services": "Services",
     "nav.projects": "Projects",
     "nav.contact": "Contact",
     "nav.cta": "Get a quote",
     "hero.badge": "Available for freelance projects",
-    "hero.greeting": "Hi, I'm René —",
+    "hero.greeting": "Hi, I'm René",
     "hero.role": "Front-end Web Developer",
     "hero.desc": "Landing pages, dashboards and design-to-code. Fast, responsive, no templates.",
     "hero.cta1": "View projects",
     "hero.cta2": "Request a quote",
+    "stack.kicker": "My stack",
+    "stack.title": "Technology that works for you",
+    "stack.desc": "Professional-grade technology to help your business sell more: ultra-fast websites, premium-looking design, and robust code that won't break as you grow.",
+    "stack.d_html": "Solid structure for your site: fast, semantic foundation that Google understands and ranks.",
+    "stack.d_css": "Modern, responsive design: your page looking perfect on phone, tablet and PC, with smooth animations.",
+    "stack.d_js": "Real interactivity: forms, bookings, animations and dashboards that respond instantly.",
+    "stack.d_ts": "Bug-proof code: ideal when your app is meant to grow without breaking.",
+    "stack.d_react": "Blazing-fast component apps: admin panels and dynamic experiences for your business.",
+    "stack.d_tailwind": "Custom designs in record time — lightweight, with no heavy templates slowing your site down.",
+    "stack.d_git": "Total change control: every version saved, nothing lost, everything reversible.",
+    "stack.d_github": "Your project published and deployed to the cloud, with continuous updates.",
+    "stack.note": "Responsive and mobile-first in every delivery · Clean code with no heavy dependencies",
     "hero.cardRole": "Front-end Developer · Freelance",
     "hero.cardStatus": "● Online",
     "hero.f1": "Ultra-fast, optimized landing pages",
@@ -157,6 +204,25 @@ const TRANSLATIONS = {
     "projects.desc": "Keep scrolling: each project lights the page with its own color. Click “View live demo” to explore each one.",
     "projects.hint": "Scroll to explore",
     "projects.demo": "View live demo ↗",
+    "land.kicker": "Sites that sell",
+    "land.title": "Landing Pages",
+    "land.desc": "Pages built to turn visits into clients: clear message, social proof and direct WhatsApp contact in one click.",
+    "dash.kicker": "Admin panels",
+    "dash.title": "Dashboards",
+    "dash.desc": "Your numbers under control: sales, inventory, members, attendance, payments, finance and a task board with progress tracking — all on clear screens. Best part: they're 100% interactive demos — filter, assign, tap and test each panel as if it were already yours, no strings attached.",
+    "dash.live": "Interactive demo: tap it and try it",
+    "p6.badge": "Admin Dashboard",
+    "p6.title": "Finance Dashboard",
+    "p6.desc": "Finance panel to track income, expenses and balance in real time: clear metrics, performance charts and recent movements on a single screen.",
+    "p6.f1": "✔ Income, expense & balance metrics",
+    "p6.f2": "✔ Interactive performance charts",
+    "p6.f3": "✔ Recent movements history",
+    "p7.badge": "Interactive App",
+    "p7.title": "Task Board",
+    "p7.desc": "Interactive board to assign tasks and track their progress: status columns, owners and real-time visible progress. Move things around and try it yourself.",
+    "p7.f1": "✔ Task assignment by owner",
+    "p7.f2": "✔ Kanban-style status columns",
+    "p7.f3": "✔ Real-time visible progress",
     "p1.badge": "Landing Page",
     "p1.title": "Auto Shop “Auto Fix”",
     "p1.desc": "Landing page to book maintenance and repair appointments. Urgent hero, service list with base pricing, testimonials and a floating WhatsApp button.",
@@ -293,9 +359,38 @@ function initScrollAnimations() {
     },
     { threshold: 0.3 }
   );
-  [".hero", "#servicios", "#contacto"].forEach((sel) => {
+  [".hero", "#stack", "#servicios", "#contacto"].forEach((sel) => {
     const el = document.querySelector(sel);
     if (el) resetObserver.observe(el);
+  });
+}
+
+/* ---------- 5b. Tira de stack: hover tiñe la página con el color del logo ---------- */
+function initStackHover() {
+  if (window.matchMedia("(hover: none)").matches) return;
+  // OJO: se aplica sobre <body>, no sobre <html>: las reglas body[data-theme]
+  // definen --accent en body y por cascada ganarían a un inline en <html>.
+  const root = document.body;
+  document.querySelectorAll(".marquee__item[data-accent]").forEach((item) => {
+    const accent = item.dataset.accent;
+    const soft = item.dataset.accentSoft;
+    const paint = () => {
+      root.style.setProperty("--accent", accent);
+      if (soft) root.style.setProperty("--accent-soft", soft);
+      root.style.setProperty("--logo-glow", soft || accent);
+      document.body.classList.add("logo-hover");
+    };
+    const unpaint = () => {
+      // Al quitar, se remueve el inline y vuelve solo al color del tema actual (base/proyecto).
+      root.style.removeProperty("--accent");
+      root.style.removeProperty("--accent-soft");
+      root.style.removeProperty("--logo-glow");
+      document.body.classList.remove("logo-hover");
+    };
+    item.addEventListener("mouseenter", paint);
+    item.addEventListener("mouseleave", unpaint);
+    item.addEventListener("focus", paint);
+    item.addEventListener("blur", unpaint);
   });
 }
 
@@ -457,5 +552,6 @@ document.addEventListener("DOMContentLoaded", () => {
   applyConfig();
   initScrollAnimations();
   initSpotlight();
+  initStackHover();
   initUI();
 });
