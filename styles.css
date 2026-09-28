@@ -49,6 +49,7 @@ body {
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
+  padding-top: 64px; /* compensa el header fijo */
   transition: background-color 0.8s ease;
 }
 
@@ -92,7 +93,7 @@ section[id], footer[id] { scroll-margin-top: 84px; }
 
 /* ---------- Header minimal ---------- */
 .header {
-  position: sticky; top: 0; z-index: 50;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
   background: transparent;
   border-bottom: 1px solid transparent;
   transition: background 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease, transform 0.35s var(--ease);
