@@ -305,14 +305,15 @@ function applyConfig() {
     if (url && /^https?:\/\//.test(url)) a.href = url;
   });
 
-  const wa = document.querySelector(".whatsapp-float");
-  if (wa && CONFIG.whatsapp && /^\d+$/.test(CONFIG.whatsapp)) {
+  // El número vive en el data-wa del botón (CONFIG.whatsapp como respaldo).
+  const wa = document.querySelector(".chat-float");
+  const waNumber = (wa && wa.dataset.wa) || CONFIG.whatsapp;
+  if (wa && waNumber && /^\d+$/.test(waNumber)) {
     const rawText =
       currentLang === "en"
         ? "👋 Hello René 😊, I want a quote for my web project 💻✨"
         : "👋 Hola René 😊, quiero una cotización para mi proyecto web 💻✨";
-    const text = encodeURIComponent(rawText);
-    wa.href = `https://wa.me/${CONFIG.whatsapp}?text=${text}`;
+    wa.href = `https://wa.me/${waNumber}?text=${encodeURIComponent(rawText)}`;
   }
 }
 
@@ -436,9 +437,29 @@ function initSpotlight() {
 
 /* ---------- 6. UI: menú móvil, año, formulario, header, Inicio ---------- */
 function initUI() {
+  // Header: blur al scrollear + smart hide (se oculta al bajar, reaparece al subir).
   const header = document.querySelector(".header");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let lastY = window.scrollY;
+  let ticking = false;
   const onScroll = () => {
-    if (header) header.classList.toggle("scrolled", window.scrollY > 24);
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      const menuOpen = document.getElementById("navLinks")?.classList.contains("open");
+      if (header) {
+        header.classList.toggle("scrolled", y > 24);
+        if (!reduceMotion && !menuOpen) {
+          if (y > 140 && y > lastY + 4) header.classList.add("header--hidden");
+          else if (y < lastY - 4 || y <= 140) header.classList.remove("header--hidden");
+        } else {
+          header.classList.remove("header--hidden");
+        }
+      }
+      lastY = y;
+      ticking = false;
+    });
   };
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();

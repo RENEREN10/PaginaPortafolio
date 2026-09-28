@@ -41,7 +41,7 @@ body[data-theme="tablero"]    { --accent: #3b82f6; --accent-soft: rgba(59,130,24
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 
 body {
   font-family: "Inter", system-ui, -apple-system, sans-serif;
@@ -95,8 +95,10 @@ section[id], footer[id] { scroll-margin-top: 84px; }
   position: sticky; top: 0; z-index: 50;
   background: transparent;
   border-bottom: 1px solid transparent;
-  transition: background 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease;
+  transition: background 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease, transform 0.35s var(--ease);
 }
+/* Smart header: se oculta al bajar (lo agrega app.js) y reaparece al subir */
+.header--hidden { transform: translateY(-110%); }
 .header.scrolled {
   backdrop-filter: blur(14px);
   background: rgba(5, 5, 6, 0.72);
@@ -140,30 +142,30 @@ section[id], footer[id] { scroll-margin-top: 84px; }
 /* ---------- Hero limpio (una columna centrada) ---------- */
 .hero {
   display: flex; justify-content: center; text-align: center;
-  padding: 6rem 0 4rem; min-height: 88vh; align-items: center;
+  padding: 3rem 0 2.5rem; align-items: center;
 }
 .hero__content { max-width: 44rem; }
 .hero__badge {
   display: inline-flex; align-items: center; gap: 0.55rem;
   font-size: 0.82rem; color: var(--muted);
   border: 1px solid var(--card-border); background: rgba(255, 255, 255, 0.02);
-  padding: 0.4rem 0.9rem; border-radius: 999px; margin-bottom: 1.4rem;
+  padding: 0.4rem 0.9rem; border-radius: 999px; margin-bottom: 1rem;
 }
 .pulse { width: 9px; height: 9px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 0 rgba(34,197,94,.6); animation: pulse 1.8s infinite; }
 @keyframes pulse { 70% { box-shadow: 0 0 0 10px rgba(34,197,94,0); } 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); } }
 
-.hero__title { font-size: clamp(2.4rem, 6vw, 4.2rem); letter-spacing: -2px; margin-bottom: 1rem; }
+.hero__title { font-size: clamp(2.4rem, 6vw, 4.2rem); letter-spacing: -2px; margin-bottom: 0.8rem; }
 .gradient-text {
   background: linear-gradient(90deg, var(--accent), var(--primary-2));
   -webkit-background-clip: text; background-clip: text; color: transparent;
   transition: 0.5s;
 }
-.hero__desc { color: var(--muted); font-size: 1.1rem; max-width: 36rem; margin: 0 auto 1.8rem; }
-.hero__cta { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.8rem; }
+.hero__desc { color: var(--muted); font-size: 1.1rem; max-width: 36rem; margin: 0 auto 1.2rem; }
+.hero__cta { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.2rem; }
 /* Tira infinita de logos del stack en el hero */
 .stack-marquee {
   max-width: 44rem; margin: 0.4rem auto 0; overflow: hidden;
-  padding: 0.7rem 0;
+  padding: 0.4rem 0;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
 }
@@ -462,20 +464,21 @@ body.logo-hover .spotlight {
 .footer { border-top: 1px solid var(--card-border); padding: 1.6rem 0; margin-top: 2rem; }
 .footer__inner { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; color: var(--muted); font-size: 0.87rem; }
 
-/* ---------- WhatsApp flotante ---------- */
-.whatsapp-float {
+/* ---------- Botón de chat flotante (WhatsApp) ---------- */
+.chat-float {
   position: fixed; right: 1.3rem; bottom: 1.3rem; z-index: 60;
   width: 58px; height: 58px; border-radius: 50%;
   display: grid; place-items: center;
+  opacity: 1; visibility: visible; pointer-events: auto;
   background: #25d366; color: #062b16;
   box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
   transition: transform 0.25s var(--ease), box-shadow 0.25s;
 }
-.whatsapp-float:hover { transform: scale(1.08) translateY(-2px); box-shadow: 0 16px 40px rgba(37,211,102,.55); }
+.chat-float:hover { transform: scale(1.08) translateY(-2px); box-shadow: 0 16px 40px rgba(37,211,102,.55); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 920px) {
-  .hero { min-height: auto; padding-top: 4rem; }
+  .hero { min-height: auto; padding-top: 2.5rem; }
   .stack-grid { grid-template-columns: repeat(2, 1fr); }
   .services-grid { grid-template-columns: 1fr; }
   .service-card + .service-card { border-left: 0; }
@@ -494,8 +497,17 @@ body.logo-hover .spotlight {
 
 @media (max-width: 560px) {
   .project-card { padding: 2.5rem 0; }
+  /* Hero: sin desbordes, todo visible en el primer pantallazo */
+  .hero__content { width: 100%; min-width: 0; }
+  .hero__title { font-size: clamp(1.9rem, 9vw, 2.6rem); letter-spacing: -1px; overflow-wrap: break-word; }
+  .hero__desc { font-size: 1rem; }
+  .hero__cta { flex-direction: column; align-items: stretch; }
+  .hero__cta .btn { flex: none; width: 100%; }
+  .stack-marquee { max-width: 100%; }
+  /* Header compacto en pantallas chicas */
+  .logo { font-size: 1.1rem; }
+  .lang-switch { font-size: 0.75rem; padding: 0.2rem 0.5rem; }
   .marquee__group { gap: 1.4rem; padding-right: 1.4rem; }
   .marquee__item img { width: 38px; height: 38px; }
-  .hero__cta .btn { flex: 1; }
-  .whatsapp-float { width: 52px; height: 52px; right: 1rem; bottom: 1rem; }
+  .chat-float { width: 52px; height: 52px; right: 1rem; bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); }
 }
